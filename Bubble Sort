@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+void BubbleSort(int* array,int length)
+{
+	for(int i=0;i<length-1;i++)
+	{
+		bool swapped = false;   //定义一个布尔变量原本等于0； 
+		for(int j=0;j<length-1;j++)
+		{
+			if(array[j]>array[j+1])
+			{
+				swap(array[j],array[j+1]);  //swap函数在std里面，可以直接调用 
+				swapped = true;  	//如果过程中发生了交换，布尔变量变为1； 
+			}
+		}
+		if(!swapped)   	//如果swapped为真，也就是发生了交换，则不执行if语句
+						//如果swapped为假，也就是没有发生交换，则执行if语句 
+		{
+			break;
+		}
+	}
+}
+
+int main()
+{
+	int n,a[100]={0};
+	cout<<"输入要排序数据的个数：";	cin>>n;
+	cout<<"输入要排序的数据：";
+	for(int i=0;i<n;i++) cin>>a[i];
+	BubbleSort(a,n);
+	for(int j=0;j<n;j++)
+	cout<<a[j]<<" ";
+	return 0;
+}
