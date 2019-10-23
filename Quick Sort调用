@@ -1,0 +1,27 @@
+#include <cstdlib>
+#include <iostream>
+#include <algorithm>   //调用sort函数一定要调用algorithm
+using namespace std;
+int main()
+{
+  int a[10]={2,4,1,23,5,76,0,43,24,65},i;   //先申明一个数组
+  for(i=0;i<10;i++)
+  cout<<a[i]<<" ";
+  sort(a,a+10,less<int>());        
+  /*
+  调用sort函数的过程包括：
+  sort(首元素地址，尾元素地址的下一个地址，比较函数)    //前两个参数必填，比较函数不填，默认递增
+  例如这里面是从a[0]（也就是2）开始排序，直到排十个数字到a[9]，
+  注意：这里要填入的时尾元素地址的下一个地址，也就是说指针要写到a[10]
+  所以第二个部分填的是a+10。其实可以理解为第二个参数和第一个参数的差值就是要排序的数字的个数。
+  如果函数的参数为sort(a+2,a+8)，那么就是从a[2](从1开始排序），排6个数据到43，其他元素不会改变
+  则排序的结果是2 4 0 1 5 23 43 76 24 65;
+  另一方面，第三个参数可以填可以不填，如果不填默认递增：
+  升序：sort(begin,end+1,greater<data_type>())
+  降序：sort(begin,end+1,less<data_type>())
+  */
+  cout<<endl;
+  for(i=0;i<10;i++)
+  cout<<a[i]<<" ";
+  return 0;
+}
