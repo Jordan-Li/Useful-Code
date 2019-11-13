@@ -1,0 +1,41 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+int main()
+{
+	int num1,num2,op,result1,result2;
+	srand(time(NULL));//C++会为整个程序设定一个种子，这样导致每次调用的时候都是同一个结果
+	//因此需要用种子函数srand修改种子，time(NULL)就是调用当前的系统的时间作为种子，头文件添加ctime 
+	//cout<<RAND_MAX;
+	num1=rand()*10/(RAND_MAX+1);
+	num2=rand()*10/(RAND_MAX+1);
+	op=rand()*4/(RAND_MAX+1);
+	switch(op){
+		case 0:cout<<num1<<"+"<<num2<<"=?";
+				cin>>result1;
+				if(num1+num2==result1) cout<<"You are right!"<<endl;
+				else cout<<"You are wrong!"<<endl;
+				break;
+		case 1:cout<<num1<<"-"<<num2<<"=?";
+				cin>>result1;
+				if(num1-num2==result1) cout<<"You are right!"<<endl;
+				else cout<<"You are wrong!"<<endl;
+				break;
+		case 2:cout<<num1<<"*"<<num2<<"=?";
+				cin>>result1;
+				if(num1*num2==result1) cout<<"You are right!"<<endl;
+				else cout<<"You are wrong!"<<endl;
+				break;
+		case 3:cout<<num1<<"/"<<num2<<"=?";
+				cin>>result1;
+				if(num1/num2==result1) cout<<"You are right!"<<endl;
+				else cout<<"You are wrong!"<<endl;
+				cout<<"余数为？"<<endl;
+				cin>>result2;
+				if(num1%num2==result1) cout<<"You are right!"<<endl;
+				else cout<<"You are wrong!"<<endl;
+				break;
+	}
+	return 0;
+}
